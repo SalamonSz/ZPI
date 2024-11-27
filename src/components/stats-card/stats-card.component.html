@@ -1,0 +1,32 @@
+<mat-card class="melanocytic-card">
+  <div class="header">
+    <div class="icon-container">
+      <img src="assets/skin_cancer.png" alt="Icon" class="icon" />
+    </div>
+    <h3>{{ name }}</h3>
+  </div>
+  <div class="content">
+    <p class="value">{{ value }}</p>
+    <p class="growth" *ngIf="change > 0">
+      <span class="value">
+        <mat-icon>trending_up</mat-icon>
+        {{ change }}%
+      </span>
+      from last week
+    </p>
+    <p class="stay" *ngIf="change === 0">
+      <span class="value">
+        <mat-icon>trending_flat</mat-icon>
+        {{ change }}%
+      </span>
+      from last week
+    </p>
+    <p class="loss" *ngIf="change < 0">
+      <span class="value">
+        <mat-icon>trending_down</mat-icon>
+        {{ change }}%
+      </span>
+      from last week
+    </p>
+  </div>
+</mat-card>

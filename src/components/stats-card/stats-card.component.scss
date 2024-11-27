@@ -1,0 +1,85 @@
+.melanocytic-card {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fdf5f5, #ffe5e5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd5d5, #ff9a9a);
+  margin-right: 16px;
+  img {
+    width: 62px;
+    height: 62px;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.value {
+  margin: 4px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.growth {
+  margin: 0;
+  font-size: 12px;
+  color: #4caf50;
+}
+
+.stay {
+  margin: 0;
+  font-size: 12px;
+  color: #93939a;
+}
+
+.loss {
+  margin: 0;
+  font-size: 12px;
+  color: #e13030;
+}
+
+.value {
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding: 5px;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+mat-icon {
+  position: relative;
+  top: 5px;
+  right:-6px;
+}
