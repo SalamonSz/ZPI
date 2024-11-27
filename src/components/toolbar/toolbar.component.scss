@@ -1,0 +1,47 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+.custom-toggle-group {
+  display: flex;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.custom-toggle {
+  border: none;
+  background-color: transparent;
+  color: #666;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 16px;
+  transition: background-color 0.3s;
+  border: #e3e3e3 1px solid;
+
+  &.mat-button-toggle-checked {
+    background-color: #ffc1b6;
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+.custom-toggle .mat-button-toggle-checked .mat-button-toggle-label-content::before {
+  content: none !important;
+}
+
+.custom-toggle .mat-button-toggle-checked .mat-icon {
+  display: none !important;
+}
+.control-section{
+  display: flex;
+  justify-content: space-between;
+  gap:10px;
+}

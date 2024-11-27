@@ -1,0 +1,10 @@
+<div class="toggle-group">
+  <div
+    class="toggle-button"
+    *ngFor="let option of options"
+    [class.active]="option === selected"
+    (click)="selectOption(option)"
+  >
+    {{ option }}
+  </div>
+</div>

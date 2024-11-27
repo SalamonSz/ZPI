@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+
+// 1. Definiowanie palet kolorów
+$custom-primary: mat.define-palette(mat.$pink-palette, 500);
+$custom-accent: mat.define-palette(mat.$orange-palette, 500);
+$custom-warn: mat.define-palette(mat.$red-palette, 500);
+
+// 2. Tworzenie motywu
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $custom-primary,
+    accent: $custom-accent,
+    warn: $custom-warn,
+  ),
+  typography: mat.define-typography-config(), // Typografia domyślna
+  density: 0, // Standardowa gęstość
+));
+
+// 3. Aplikowanie rdzenia Angular Material i motywu na komponenty
+@include mat.core(); // Rdzeń Angular Material
+@include mat.all-component-themes($custom-theme); // Motyw dla wszystkich komponentów
+
+// 4. Niestandardowe style, np. dla mat-button-toggle
+.mat-button-toggle-group {
+  background: #fff;
+  border-radius: 16px;
+  padding: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.mat-button-toggle {
+  border-radius: 16px;
+  border: none;
+  background-color: transparent;
+  color: mat.get-color-from-palette($custom-primary, 500);
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: mat.get-color-from-palette($custom-primary, 50);
+  }
+
+  &.mat-button-toggle-checked {
+    background-color: mat.get-color-from-palette($custom-primary, 300);
+    color: mat.get-color-from-palette($custom-primary, 900);
+  }
+}
