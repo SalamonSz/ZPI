@@ -1,35 +1,18 @@
-
-
 @use '@angular/material' as mat;
-
-@include mat.core();
-
-$ZPI-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
-  )
-));
-
+@use './srcm3-theme.scss' as customTheme;
 
 :root {
-  @include mat.all-component-themes($ZPI-theme);
+    @include mat.all-component-themes(customTheme.$light-theme);
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 30px;
+    height: 100%;
 }
-
-
-@use '@angular/material' as mat;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-}
+@include mat.core();
+@include mat.color-variants-backwards-compatibility(customTheme.$light-theme);
 
 

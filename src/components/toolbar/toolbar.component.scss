@@ -33,15 +33,32 @@
     background-color: rgba(0, 0, 0, 0.05);
   }
 }
-.custom-toggle .mat-button-toggle-checked .mat-button-toggle-label-content::before {
+.custom-toggle
+  .mat-button-toggle-checked
+  .mat-button-toggle-label-content::before {
   content: none !important;
 }
 
 .custom-toggle .mat-button-toggle-checked .mat-icon {
   display: none !important;
 }
-.control-section{
+.control-section {
   display: flex;
   justify-content: space-between;
-  gap:10px;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  color: #ffc1b6;
+  font-family: Mukta Malar;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }

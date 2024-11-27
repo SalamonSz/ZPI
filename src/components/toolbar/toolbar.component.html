@@ -1,22 +1,24 @@
 <div class="toolbar">
-  <div class="logo-section">CliniScan</div>
+  <div class="logo">
+    <img src="../../../public/assets/logo.png" />
+    <div class="logo-section">CliniScan</div>
+  </div>
   <div class="navigation-section">
     <app-custom-toggle
-  [options]="['Overview', 'Analytics', 'Diagnosis', 'Education']"
-  [selected]="currentTab"
-  (selectedChange)="onTabChange($event)"
-></app-custom-toggle>
-
+      [options]="['Overview', 'Analytics', 'Diagnosis', 'Education']"
+      [selected]="currentTab"
+      (selectedChange)="onTabChange($event)"
+    ></app-custom-toggle>
   </div>
   <div class="control-section">
     <button mat-mini-fab>
-        <mat-icon>search</mat-icon>
-      </button>
-      <button mat-mini-fab>
-        <mat-icon>home</mat-icon>
-      </button>
-      <button mat-mini-fab>
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      </div>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button mat-mini-fab>
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-mini-fab>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
 </div>
