@@ -1,3 +1,14 @@
-<div class="data-section">
-<app-stats-card *ngFor="let info of  informationArray" [name]="info.name" [value]="info.value" [change]="info.change" ></app-stats-card>
+<div class="content">
+<div class="data-section" *ngIf="!uploadComponent?.instructionSignal()" >
+  <app-stats-card
+    *ngFor="let info of informationArray"
+    [name]="info.name"
+    [value]="info.value"
+    [change]="info.change"
+  ></app-stats-card>
+</div>
+<div class="instruction-section" *ngIf="uploadComponent?.instructionSignal()" >
+<app-instruction></app-instruction>
+</div>
+<div [ngClass] ="{'camera-section-small':!uploadComponent?.instructionSignal(), 'camera-section-big':uploadComponent?.instructionSignal() }"><app-upload #uploadComponent></app-upload></div>
 </div>

@@ -1,13 +1,27 @@
 import { Component } from '@angular/core';
 import { StatsCardComponent } from '../stats-card/stats-card.component';
 import { CommonModule } from '@angular/common';
+import { UploadComponent } from '../upload/upload.component';
+import { InstructionComponent } from '../instruction/instruction.component';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [StatsCardComponent, CommonModule],
+  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent],
   templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+  styleUrl: './overview.component.scss',
+  animations: [
+    trigger('fadeInOut', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(20px)' }), 
+        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })), 
+      ]),
+      transition(':leave', [
+        animate('300ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' })), 
+      ]),
+    ]),
+  ],
 })
 export class OverviewComponent {
 
@@ -16,7 +30,6 @@ export class OverviewComponent {
     { name: 'Malignant melanoma', value: 1002, change: 0 },
     { name: 'Seborrheic keratosis', value: 60, change: -1.5 },
   ];
-
  }
 
  class Information {
