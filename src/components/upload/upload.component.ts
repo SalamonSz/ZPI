@@ -28,9 +28,17 @@ import { MatIconModule } from '@angular/material/icon';
 export class UploadComponent {
 
   instructionSignal = signal(false); 
+  startAnalysisSignal = signal(false);
+  imageSet = false;
 
   onInstructionClick() {
     this.instructionSignal.set(true);
+  }
+
+  onAcceptClick(){
+    this.instructionSignal.set(false);
+    this.startAnalysisSignal = signal(true);
+    this.imageSet = true;
   }
   imageSrc: string | null = null;
 

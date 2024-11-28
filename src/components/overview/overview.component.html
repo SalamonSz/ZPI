@@ -10,5 +10,8 @@
 <div class="instruction-section" *ngIf="uploadComponent?.instructionSignal()" >
 <app-instruction></app-instruction>
 </div>
+<div class="analysis-section" *ngIf="uploadComponent?.startAnalysisSignal()">
+  Analiza
+</div>
 <div [ngClass] ="{'camera-section-small':!uploadComponent?.instructionSignal(), 'camera-section-big':uploadComponent?.instructionSignal() }"><app-upload #uploadComponent></app-upload></div>
 </div>

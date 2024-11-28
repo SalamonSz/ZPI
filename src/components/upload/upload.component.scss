@@ -84,6 +84,8 @@ mat-icon {
   height: 90%;
   margin: 16px;
   border: 8px white solid;
+  object-fit: cover;
+  object-position: center;
 }
 .content{
   width: 100%;
