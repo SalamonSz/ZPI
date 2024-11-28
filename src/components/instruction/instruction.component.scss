@@ -1,5 +1,6 @@
 :host{
     height: 100%;
+    width: 100%;
 }
 .instructions-container {
     background-color: #f9f9f9;
@@ -26,6 +27,8 @@
       align-items: flex-start;
       flex-direction: column;
       margin-bottom: 15px;
+      transition: opacity 0.5s ease-in-out;
+
   
       .instruction-button {
         color: #ff6f61;

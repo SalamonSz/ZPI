@@ -1,23 +1,31 @@
-
 <mat-card class="upload-card large">
-    <div class="header">
-      <span>Photo of your skin lesion</span>
-      <button mat-button class="upload-button">Upload</button>
+  <div class="header">
+    <span>Photo of your skin lesion</span>
+    <div class="button-control">
+      <button *ngIf="imageSrc" mat-button class="accept-button" @fadeAnimation>Accept</button>
+      <button mat-button class="upload-button" (click)="fileInput.click()">
+        Upload
+      </button>
     </div>
+    <input
+      #fileInput
+      type="file"
+      accept="image/*"
+      hidden
+      (change)="onFileSelected($event)"
+    />
+  </div>
+
+  <div class="content" *ngIf="imageSrc; else noImage" @fadeAnimation>
+    <img [src]="imageSrc" alt="Skin lesion photo" class="uploaded-image" />
+  </div>
+
+  <ng-template #noImage>
     <div class="instruction">
       <mat-icon>photo_camera</mat-icon>
-      <button mat-button class="upload-button" (click)="onInstructionClick()">Click here to get the full instructions</button>
+      <button mat-button class="upload-button" (click)="onInstructionClick()">
+        Click here to get the full instructions
+      </button>
     </div>
-  </mat-card>
-  
-  <!-- Wariant mniejszy 
-  <mat-card class="upload-card small">
-    <div class="header">
-      <span>Photo of your skin lesion</span>
-      <button mat-button class="upload-button">Upload</button>
-    </div>
-    <button mat-button class="instruction-button">
-      Click here to get the full instructions
-    </button>
-  </mat-card>-->
-  
+  </ng-template>
+</mat-card>
