@@ -2,7 +2,6 @@
   background-color: #ffb0a0;
   border-radius: 15px;
   color: white;
-  margin: 5px;
   height: 100%;
   padding: 20px;
 
@@ -41,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 24px;
+    font-size: 1.125rem;
     font-weight: bold;
   }
 
@@ -49,14 +48,14 @@
     background: white;
     color: #f9a7a0;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
   .accept-button{
     background: white;
     color: #00b789;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.125rem;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
@@ -80,8 +79,8 @@ mat-icon {
 }
 
 .uploaded-image {
-  width: 95%;
-  height: 90%;
+  width: 90%;
+  height: 85%;
   margin: 16px;
   border: 8px white solid;
   object-fit: cover;
