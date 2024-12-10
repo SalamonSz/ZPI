@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { CustomToggleComponent } from '../custom-toggle/custom-toggle.component';
 import {MatIconModule} from '@angular/material/icon';
+import { ToolbarServiceService } from '../../services/toolbar-service.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,8 +14,13 @@ import {MatIconModule} from '@angular/material/icon';
 export class ToolbarComponent {
   currentTab = 'overview';
 
-  onTabChange(value: string) {
-    this.currentTab = value;
-    console.log('Selected tab:', value);
+  constructor(private tabService: ToolbarServiceService) {
+    this.tabService.currentTab$.subscribe((tab) => {
+      this.currentTab = tab;
+    });
+  }
+
+  onTabChange(newTab: string): void {
+    this.tabService.setCurrentTab(newTab);
   }
 }

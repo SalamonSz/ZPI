@@ -2,7 +2,15 @@
   <div class="header" *ngIf="!imageSet">
     <span>Photo of your skin lesion</span>
     <div class="button-control">
-      <button *ngIf="imageSrc" mat-button class="accept-button" @fadeAnimation (click)="onAcceptClick()">Accept</button>
+      <button
+        *ngIf="imageSrc"
+        mat-button
+        class="accept-button"
+        @fadeAnimation
+        (click)="onAcceptClick()"
+      >
+        Accept
+      </button>
       <button mat-button class="upload-button" (click)="fileInput.click()">
         Upload
       </button>
@@ -23,9 +31,29 @@
   <ng-template #noImage>
     <div class="instruction">
       <mat-icon>photo_camera</mat-icon>
-      <button mat-button class="upload-button" (click)="onInstructionClick()">
+      <button
+        mat-button
+        class="upload-button"
+        (click)="onInstructionClick()"
+        *ngIf="!instructionSignal()"
+      >
         Click here to get the full instructions
       </button>
+      <button
+        mat-button
+        class="upload-button"
+        (click)="fileInput.click()"
+        *ngIf="instructionSignal()"
+      >
+        Click here to add photo
+      </button>
+      <input
+      #fileInput
+      type="file"
+      accept="image/*"
+      hidden
+      (change)="onFileSelected($event)"
+    />
     </div>
   </ng-template>
 </mat-card>

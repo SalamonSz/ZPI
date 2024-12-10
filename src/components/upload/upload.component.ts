@@ -1,3 +1,4 @@
+import { ToolbarServiceService } from './../../services/toolbar-service.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output, signal } from '@angular/core';
@@ -27,6 +28,10 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class UploadComponent {
 
+  constructor(private ToolbarService: ToolbarServiceService){
+
+  }
+
   instructionSignal = signal(false); 
   startAnalysisSignal = signal(false);
   imageSet = false;
@@ -39,6 +44,7 @@ export class UploadComponent {
     this.instructionSignal.set(false);
     this.startAnalysisSignal = signal(true);
     this.imageSet = true;
+    this.ToolbarService.setCurrentTab('Analytics');
   }
   imageSrc: string | null = null;
 

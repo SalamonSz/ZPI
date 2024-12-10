@@ -5,11 +5,12 @@ import { UploadComponent } from '../upload/upload.component';
 import { InstructionComponent } from '../instruction/instruction.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { AnalysisCardComponent } from '../analysis-card/analysis-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, AnalysisCardComponent],
+  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, AnalysisCardComponent, MatCardModule],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss',
   animations: [
