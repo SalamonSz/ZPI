@@ -1,0 +1,14 @@
+<div class="container">
+    <h3>O nowotworach skóry</h3>
+    <div class="navigation-section">
+        <app-custom-toggle
+            [options]="['Ogólnie', 'Znamiona melanocytowe', 'Czerniak złośliwy', 'Rak podstawnokomórkowy']"
+            [selected]="activeTab" (selectedChange)="onTabChange($event)"></app-custom-toggle>
+    </div>
+    <div class="content">
+        <div class="image">
+          <img [src]="tabsContent[activeTab].image" [alt]="activeTab">
+        </div>
+        <div class="text" [innerHTML]="tabsContent[activeTab].htmlContent"></div>
+      </div>
+</div>

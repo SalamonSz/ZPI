@@ -1,6 +1,6 @@
 <mat-card class="upload-card large">
   <div class="header" *ngIf="!imageSet">
-    <span>Photo of your skin lesion</span>
+    <span>Zdjęcie Twojej zmiany</span>
     <div class="button-control">
       <button
         *ngIf="imageSrc"
@@ -9,10 +9,10 @@
         @fadeAnimation
         (click)="onAcceptClick()"
       >
-        Accept
+        Akceptuj
       </button>
       <button mat-button class="upload-button" (click)="fileInput.click()">
-        Upload
+        Prześlij
       </button>
     </div>
     <input
@@ -37,7 +37,7 @@
         (click)="onInstructionClick()"
         *ngIf="!instructionSignal()"
       >
-        Click here to get the full instructions
+      Kliknij tutaj, aby zobaczyć pełne instrukcje.
       </button>
       <button
         mat-button
@@ -45,7 +45,7 @@
         (click)="fileInput.click()"
         *ngIf="instructionSignal()"
       >
-        Click here to add photo
+      Kliknij tutaj, aby dodać zdjęcie.
       </button>
       <input
       #fileInput
