@@ -13,7 +13,7 @@ import { DiagnosisSectionComponent } from "../diagnosis-section/diagnosis-sectio
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, MatCardModule, DiagnosisSectionComponent, CommonModule],
+  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, MatCardModule, DiagnosisSectionComponent, CommonModule, InformationSectionComponent],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss',
   animations: [

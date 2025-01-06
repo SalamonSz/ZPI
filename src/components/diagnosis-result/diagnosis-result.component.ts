@@ -22,20 +22,42 @@ export class DiagnosisResultComponent {
     });
   }
 
-  descriptions: { [key: string]: { namePl: string; description: string } } = {
+  descriptions: { 
+    [key: string]: { 
+      namePl: string; 
+      description: string; 
+      symptoms: string; 
+      riskFactors: string; 
+      recommendations: string; 
+      treatment: string; 
+    } 
+  } = {
     "basal cell carcinoma": {
       namePl: "Rak podstawnokomórkowy",
-      description: "Powszechny rodzaj raka skóry. Zwykle rośnie powoli i rzadko daje przerzuty."
+      description: "Powszechny rodzaj raka skóry. Wywodzi się z komórek podstawnych, które znajdują się w najbardziej zewnętrznej warstwie skóry (naskórku).",
+      symptoms: "Perłowy lub przezroczysty guzek, zmiana z podwiniętymi brzegami i centralnym zagłębieniem, bliznowata zmiana bez wcześniejszego urazu.",
+      riskFactors: "Ekspozycja na promieniowanie UV, jasna karnacja, wiek powyżej 50 lat.",
+      recommendations: "Unikaj ekspozycji na słońce, stosuj kremy z filtrem UV, regularne kontrole dermatologiczne.",
+      treatment: "Usunięcie chirurgiczne zmiany, radioterapia w przypadku zaawansowanych zmian."
     },
     "nevus": {
       namePl: "Znamię melanocytowe",
-      description: "Zazwyczaj łagodny pieprzyk. Ważne jest, aby monitorować zmiany w jego wielkości, kształcie lub kolorze."
+      description: "Łagodny pieprzyk. Ważne jest monitorowanie zmian w jego wielkości, kształcie lub kolorze.",
+      symptoms: "Ciemna plama lub pieprzyk o regularnych brzegach.",
+      riskFactors: "Wrodzone predyspozycje, nadmierna ekspozycja na promieniowanie UV.",
+      recommendations: "Monitoruj zmiany znamion, szczególnie nowe lub szybko rosnące zmiany.",
+      treatment: "Regularne obserwacje; w razie podejrzeń usunięcie chirurgiczne."
     },
     "melanoma": {
       namePl: "Czerniak złośliwy",
-      description: "Poważny rodzaj raka skóry, który wymaga wczesnego wykrycia i leczenia."
+      description: "Poważny rodzaj raka skóry, który wymaga wczesnego wykrycia i leczenia. Może rozwijać się na istniejących znamionach lub zdrowej skórze.",
+      symptoms: "Asymetryczne zmiany skórne, nieregularne brzegi, zmiany koloru, średnica powyżej 6 mm.",
+      riskFactors: "Jasna karnacja, wrodzone predyspozycje, intensywna ekspozycja na promieniowanie UV.",
+      recommendations: "Regularne badania dermatologiczne, stosowanie kremów z filtrem UV, unikanie opalania.",
+      treatment: "Chirurgiczne usunięcie zmiany, immunoterapia lub radioterapia w przypadku zaawansowanych stadiów."
     }
   };
+  
 
   getProbabilityText(value: number): string {
     if (value > 0.6) {

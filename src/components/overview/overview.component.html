@@ -1,16 +1,15 @@
 <div class="content">
-  <!--<div class="data-section" *ngIf="!uploadComponent?.instructionSignal() && !uploadComponent?.startAnalysisSignal()">
+  <div class="data-section" *ngIf="!uploadComponent?.instructionSignal() && !uploadComponent?.startAnalysisSignal()">
     <div class="card-section">
       <app-stats-card *ngFor="let info of informationArray" [name]="info.name" [value]="info.value"
         [change]="info.change"></app-stats-card>
     </div>
     <app-information-section></app-information-section>
-  </div>-->
+  </div>
   <div class="instruction-section" *ngIf="uploadComponent?.instructionSignal()">
     <app-instruction></app-instruction>
   </div>
-  <!--<div class="analysis-section" *ngIf="uploadComponent?.startAnalysisSignal()"></div>-->
-  <div class="analysis-section">
+  <div class="analysis-section" *ngIf="uploadComponent?.startAnalysisSignal()">
     <app-diagnosis-section></app-diagnosis-section>
   </div>
   <div
