@@ -7,11 +7,13 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { AnalysisCardComponent } from '../analysis-card/analysis-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { InformationSectionComponent } from '../information-section/information-section.component';
+import { DiagnosisResultComponent } from "../diagnosis-result/diagnosis-result.component";
+import { DiagnosisSectionComponent } from "../diagnosis-section/diagnosis-section.component";
 
 @Component({
   selector: 'app-overview',
   standalone: true,
-  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, AnalysisCardComponent, MatCardModule, InformationSectionComponent],
+  imports: [StatsCardComponent, CommonModule, UploadComponent, InstructionComponent, MatCardModule, DiagnosisSectionComponent, CommonModule],
   templateUrl: './overview.component.html',
   styleUrl: './overview.component.scss',
   animations: [

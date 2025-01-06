@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { DjangoApiService } from '../../services/backend-comunication-service/django-api.service';
+import { DiagnosisResultService } from '../../services/diagnosis-result.service';
 
 @Component({
   selector: 'app-upload',
@@ -31,7 +32,7 @@ export class UploadComponent {
 
   selectedImage: File | null = null;
 
-  constructor(private ToolbarService: ToolbarServiceService, private apiService: DjangoApiService){
+  constructor(private ToolbarService: ToolbarServiceService, private apiService: DjangoApiService, private daignosisService: DiagnosisResultService){
 
   }
 
@@ -55,13 +56,14 @@ export class UploadComponent {
     this.apiService.predictImage(this.selectedImage).subscribe({
       next: (response) => {
         console.log('Prediction result:', response);
-        // Obsługa wyniku analizy
+        this.daignosisService.updatePredictions(response);
+        this.ToolbarService.setCurrentTab('Diagnoza');
       },
       error: (error) => {
         console.error('Error during prediction:', error);
       },
     });
-    this.ToolbarService.setCurrentTab('Analytics');
+    this.ToolbarService.setCurrentTab('Badanie');
   }
   imageSrc: string | null = null;
 

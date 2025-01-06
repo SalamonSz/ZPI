@@ -12,7 +12,8 @@ import { ToolbarServiceService } from '../../services/toolbar-service.service';
   styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent {
-  currentTab = 'overview';
+  
+  currentTab = 'Wiedza';
 
   constructor(private tabService: ToolbarServiceService) {
     this.tabService.currentTab$.subscribe((tab) => {

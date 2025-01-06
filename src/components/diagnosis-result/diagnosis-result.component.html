@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="navigation-section">
+        <app-custom-toggle [options]="['Wyniki', 'Diagnoza', 'Zalecenia']" [selected]="activeTab"
+            (selectedChange)="onTabChange($event)"></app-custom-toggle>
+    </div>
+    <div class="content">
+        <div class="image">
+        </div>
+        <div class="text">
+            <div *ngIf="(diagnosisSevice.result$ | async) as results">
+                <div *ngFor="let item of results">
+                  <h3>
+                    {{ descriptions[item.name]?.namePl || item.name }} 
+                    ({{ (item.value) | number: '1.0-0' }}% prawdopodobieństwa)
+                  </h3>
+                  <p>
+                    Co to oznacza: {{ descriptions[item.name]?.description || 'Brak opisu.' }}
+                  </p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

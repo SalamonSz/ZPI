@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ToolbarServiceService {
 
-  private currentTabSubject = new BehaviorSubject<string>('Overview');
+  private currentTabSubject = new BehaviorSubject<string>('Wiedza');
   currentTab$ = this.currentTabSubject.asObservable();
 
   setCurrentTab(tab: string): void {
