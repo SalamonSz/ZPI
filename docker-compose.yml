@@ -1,10 +1,8 @@
-version: '3.9'
+version: '3.8'
 services:
-  angular-app:
+  zpi-app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:80"
-    volumes:
-      - ./dist/zpi:/usr/share/nginx/html
