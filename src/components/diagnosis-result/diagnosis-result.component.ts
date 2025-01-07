@@ -76,6 +76,16 @@ export class DiagnosisResultComponent {
   onTabChange(tab: string) {
     this.activeTab = tab;
   }
+
+  getHighestProbabilityResult(results: any[]): any | null {
+    const filteredResults = results.filter(result => result.value >= 50);
+    if (filteredResults.length === 0) {
+      return null;
+    }
+    return filteredResults.reduce((max, current) =>
+      current.value > max.value ? current : max
+    );
+  }
 }
 
 

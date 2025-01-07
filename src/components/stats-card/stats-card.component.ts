@@ -15,4 +15,5 @@ export class StatsCardComponent {
   @Input() name ='';
   @Input() value: number = 0;
   @Input() change: number = 0;
+  @Input() diagnosis: boolean = false;
 }

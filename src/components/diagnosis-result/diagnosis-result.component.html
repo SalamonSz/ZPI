@@ -7,8 +7,9 @@
       </app-custom-toggle>
   </div>
   <div class="content">
-      <div class="image">
-      </div>
+        <div class="image">
+          <img [src]="diagnosisSevice.selectedImage" [alt]="'yourImg'">
+        </div>
       <div class="text">
           <!-- Sekcja dla zakładki "Wyniki" -->
           <div *ngIf="activeTab === 'Wyniki'">
@@ -28,28 +29,28 @@
           <!-- Sekcja dla zakładki "Diagnoza" -->
           <div class="diagnosis" *ngIf="activeTab === 'Diagnoza'">
             <div *ngIf="(diagnosisSevice.result$ | async) as results">
-              <ng-container *ngIf="results.length > 0">
-                <ng-container *ngIf="results[0].value > 0.5">
+              <ng-container *ngIf="getHighestProbabilityResult(results) as result">
+                <ng-container *ngIf="result.value > 50">
                   <h3>Na podstawie analizy najbardziej prawdopodobną diagnozą jest:</h3>
-                  <h3>{{ descriptions[results[0].name]?.namePl || results[0].name }}</h3>
-                  <p>{{ (results[0].value) | number: '1.0-0' }}% prawdopodobieństwa</p>
+                  <h3>{{ descriptions[result.name]?.namePl || result.name }}</h3>
+                  <p>{{ result.value | number: '1.0-0' }}% prawdopodobieństwa</p>
           
-                  <h3>Co to jest {{ descriptions[results[0].name]?.namePl || results[0].name }}?</h3>
-                  <p>{{ descriptions[results[0].name]?.description || 'Brak opisu.' }}</p>
+                  <h3>Co to jest {{ descriptions[result.name]?.namePl || result.name }}?</h3>
+                  <p>{{ descriptions[result.name]?.description || 'Brak opisu.' }}</p>
           
                   <h3>Objawy:</h3>
-                  <p>{{ descriptions[results[0].name]?.symptoms || 'Brak danych o objawach.' }}</p>
+                  <p>{{ descriptions[result.name]?.symptoms || 'Brak danych o objawach.' }}</p>
           
                   <h3>Czynniki ryzyka:</h3>
-                  <p>{{ descriptions[results[0].name]?.riskFactors || 'Brak danych o czynnikach ryzyka.' }}</p>
+                  <p>{{ descriptions[result.name]?.riskFactors || 'Brak danych o czynnikach ryzyka.' }}</p>
           
                   <h3>Zalecenia:</h3>
-                  <p>{{ descriptions[results[0].name]?.recommendations || 'Brak zaleceń.' }}</p>
+                  <p>{{ descriptions[result.name]?.recommendations || 'Brak zaleceń.' }}</p>
           
                   <h3>Leczenie:</h3>
-                  <p>{{ descriptions[results[0].name]?.treatment || 'Brak danych o leczeniu.' }}</p>
+                  <p>{{ descriptions[result.name]?.treatment || 'Brak danych o leczeniu.' }}</p>
                 </ng-container>
-                <ng-container *ngIf="results[0].value <= 0.5">
+                <ng-container *ngIf="result.value <= 50">
                   <p>Brak wystarczająco prawdopodobnej diagnozy (poniżej 50% prawdopodobieństwa).</p>
                 </ng-container>
               </ng-container>

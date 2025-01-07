@@ -5,9 +5,10 @@
     </div>
     <h3>{{ name }}</h3>
   </div>
-  <div class="content">
-    <p class="value">{{ value | formatValue:false }}</p>
-    <p class="growth" *ngIf="change > 0">
+  <div [ngClass]="{'content': !diagnosis, 'content-center':diagnosis}">
+    <p class="value">{{ value | formatValue:false }} <ng-container *ngIf="diagnosis"> %</ng-container>
+    </p>
+    <p class="growth" *ngIf="change > 0 && !diagnosis">
       <span class="value">
         <mat-icon>trending_up</mat-icon>
         {{ change | formatValue:false}}%
@@ -15,7 +16,7 @@
       od zeszłego 
 tygodnia
     </p>
-    <p class="stay" *ngIf="change === 0">
+    <p class="stay" *ngIf="change === 0 && !diagnosis">
       <span class="value">
         <mat-icon>trending_flat</mat-icon>
         {{ change | formatValue:false}}%
@@ -23,7 +24,7 @@ tygodnia
       od zeszłego 
 tygodnia
     </p>
-    <p class="loss" *ngIf="change < 0">
+    <p class="loss" *ngIf="change < 0 && !diagnosis">
       <span class="value">
         <mat-icon>trending_down</mat-icon>
         {{ change | formatValue:false}}%

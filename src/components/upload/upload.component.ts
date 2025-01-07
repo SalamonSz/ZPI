@@ -77,6 +77,7 @@ export class UploadComponent {
 
       reader.onload = (e: any) => {
         this.imageSrc = e.target.result; 
+        this.daignosisService.selectedImage = e.target.result;
       };
 
       reader.readAsDataURL(file);

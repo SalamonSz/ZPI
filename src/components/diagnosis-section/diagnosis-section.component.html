@@ -1,6 +1,6 @@
-<div class="results-cards">
-    <app-stats-card></app-stats-card>
-    <app-stats-card></app-stats-card>
-    <app-stats-card></app-stats-card>
+<div class="results-cards"*ngIf="(diagnosisSevice.result$ | async) as results">
+        <ng-container *ngFor="let item of results">
+            <app-stats-card [name]="descriptions[item.name]?.namePl || 'Default Name'" [value]="item.value" [diagnosis]="true"></app-stats-card>
+        </ng-container>
 </div>
 <app-diagnosis-result></app-diagnosis-result>
