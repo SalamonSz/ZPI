@@ -17,8 +17,5 @@ export class AppComponent {
   title = 'ZPI';
 
   constructor(private apiService: DjangoApiService){
-    this.apiService.getDiseases().subscribe((result)=>{
-      console.log(result);
-    })
   }
 }
