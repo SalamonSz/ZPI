@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { InformationSectionComponent } from '../information-section/information-section.component';
 import { DiagnosisResultComponent } from "../diagnosis-result/diagnosis-result.component";
 import { DiagnosisSectionComponent } from "../diagnosis-section/diagnosis-section.component";
+import { DjangoApiService } from '../../services/backend-comunication-service/django-api.service';
 
 @Component({
   selector: 'app-overview',
@@ -29,6 +30,30 @@ import { DiagnosisSectionComponent } from "../diagnosis-section/diagnosis-sectio
   ],
 })
 export class OverviewComponent {
+
+  constructor(private apiService: DjangoApiService){}
+
+  ngOnInit(): void {
+    this.apiService.getWeeklyStats().subscribe((result) => {
+      const nameMapping: { [key: string]: string } = {
+        "nevus": "Znamiona melanocytowe",
+        "melanoma": "Czerniak złośliwy",
+        "basal cell carcinoma": "Rak podstawnokomórkowy"
+      };
+  
+      result.forEach((item) => {
+        const mappedName = nameMapping[item.result];
+        if (mappedName) {
+          const info = this.informationArray.find((info) => info.name === mappedName);
+          if (info) {
+            info.value = item.count; 
+          }
+        }
+      });
+  
+      console.log(this.informationArray);
+    });
+  }
 
   informationArray: Information[] = [
     { name: 'Znamiona melanocytowe', value: 1250, change: 4.8 },

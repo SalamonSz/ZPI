@@ -20,7 +20,5 @@ export class AppComponent {
     this.apiService.getDiseases().subscribe((result)=>{
       console.log(result);
     })
-    this.apiService.getMonthlyStats().subscribe((result)=> console.log(result));
-    this.apiService.getWeeklyStats().subscribe((result)=> console.log(result));
   }
 }
